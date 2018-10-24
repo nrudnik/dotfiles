@@ -2,7 +2,7 @@
 
 dir=~/dotfiles
 backupdir=~/dotfiles.bak
-files=".vimrc"
+files=".vimrc .imwheelrc"
 
 mkdir -p $backupdir
 
