@@ -12,7 +12,7 @@ for file in $files; do
 done
 
 #take care of other config that are not simple dot files
-cp ~/.config/monitors.xml $backupdir/
+mv ~/.config/monitors.xml $backupdir/
 ln -s $dir/monitors.xml ~/.config/monitors.xml
 
 #Setup (one time) for login screen to match monitor config.
