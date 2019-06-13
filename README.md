@@ -1,9 +1,22 @@
 # dotfiles
 
-Simple repo to track dotfiles in home profile. To use:
+Simple repo to track dotfiles in home profile using git bare repo with home dir as working tree. To use:
 
-* Clone the repo
-* Run `setup-links.sh` to link files to home
+#First, alias the git command to something
+echo 'alias dotfiles="git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"' >> $HOME/.bashrc
 
-Any existing files in home profile will be moved to a backup folder at ~/dotfiles.bak/.
+#Make sure the local repo is in gitignore to prevent recursion problems
+echo ".dotfiles.git" >> .gitignore
+
+#Git clone the repo 
+git clone --bare https://www.github.com/nrudnik/dotfiles.git $HOME/.dotfiles.git
+
+#Checkout with the new alias so the work dir and repo dir ar set right
+#Pick a branch where specific distro setups might be useful
+dotfiles checkout manjaro-i3
+
+#Prvent all the untracked files from showing
+dotfiles config --local status.showUntrackedFiles no
+
+
 
